@@ -4,7 +4,7 @@ import liff from "@line/liff";
 function LiffLogin() {
   const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const LIFF_ID = "1654987037-qkplLBQ9";
+  const LIFF_ID = "1655100279-x4wN2gY1";
   useEffect(() => {
     const getLiff = async () => {
       await liff.init({ liffId: LIFF_ID });

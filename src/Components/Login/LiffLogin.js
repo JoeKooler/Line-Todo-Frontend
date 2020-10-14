@@ -21,7 +21,7 @@ function LiffLogin(props) {
     console.log(props);
     LiffInit();
   }, []);
-  return <></>;
+  return <>{props.children}</>;
 }
 
 export default LiffLogin;

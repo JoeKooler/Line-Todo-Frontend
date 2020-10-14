@@ -8,7 +8,7 @@ function LiffLogin() {
   //   (state) => state.UserReducer
   // );
   const [userName, setUserName] = useState("");
-  // const LIFF_ID = "1655100279-x4wN2gY1";
+  const LIFF_ID = "1655100279-x4wN2gY1";
   // const dispatch = useDispatch();
   // const loginAct = (user) => dispatch(LoginAction(user));
 

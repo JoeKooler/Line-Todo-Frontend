@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginAction } from "../../Redux/User/Reducer";
+import { LoginAction } from "../../Redux/User/Action";
 
 import liff from "@line/liff";
 

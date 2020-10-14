@@ -11,6 +11,7 @@ function LiffLogin() {
       setIsLoggedIn(liff.isLoggedIn());
       if (!isLoggedIn) {
         liff.login();
+        setIsLoggedIn(liff.isLoggedIn());
         setUserName((await liff.getProfile()).displayName);
       } else {
         setUserName((await liff.getProfile()).displayName);

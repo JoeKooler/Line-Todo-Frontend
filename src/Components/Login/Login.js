@@ -17,7 +17,7 @@ function LiffLogin() {
     const getLiff = async () => {
       await liff.init({ liffId: LIFF_ID });
       if (loginSuccess) {
-        liff.login();
+        await liff.login();
         loginAct(await liff.getProfile());
         console.log(user);
         setUserName((await liff.getProfile()).displayName);

@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import { useSelector } from "react-redux";
 
 export default function Todos() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.TodoReducer.todos);
   return (
     <>
       {todos.map((todo) => (

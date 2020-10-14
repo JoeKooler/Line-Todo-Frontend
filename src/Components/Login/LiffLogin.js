@@ -3,7 +3,7 @@ import liff from "@line/liff";
 import { useSelector, useDispatch } from "react-redux";
 import { LoginAction } from "../../Redux/User/Action";
 
-function LiffLogin() {
+function LiffLogin(props) {
   const LIFF_ID = "1655100279-x4wN2gY1";
   const { loginSuccess } = useSelector((state) => state.UserReducer);
 
@@ -18,7 +18,7 @@ function LiffLogin() {
         setLogin(liff.getProfile());
       }
     };
-
+    console.log(props);
     LiffInit();
   }, []);
   return <></>;

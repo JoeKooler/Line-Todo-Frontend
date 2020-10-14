@@ -7,7 +7,7 @@ export default function Todo() {
   const [newTodo, setNewTodo] = useState("");
 
   //Redux
-  const id = useSelector((state) => state.id);
+  const id = useSelector((state) => state.TodoReducer.id);
   const dispatch = useDispatch();
   const incrementID = () => dispatch(incrementIDAction());
   const addNewTodo = (todo) => dispatch(addTodoAction(todo));

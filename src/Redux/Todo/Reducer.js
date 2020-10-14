@@ -18,7 +18,7 @@ const editTodo = (todos, { todoContent, todoID }) => {
   return [...todos];
 };
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case TYPE.ADD_TODO:

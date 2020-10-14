@@ -8,17 +8,12 @@ function LiffLogin() {
   useEffect(() => {
     const LiffInit = async () => {
       await liff.init({ liffId: LIFF_ID });
-    };
-
-    const setName = async () => {
       setUserName((await liff.getProfile()).displayName);
     };
-    if (liff.isLoggedIn()) {
-      setName();
-    } else {
+
+    if (!liff.isLoggedIn()) {
       liff.login();
     }
-
     LiffInit();
   }, []);
   return (

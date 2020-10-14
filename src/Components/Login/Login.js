@@ -20,7 +20,6 @@ function LiffLogin() {
     const setName = async () => {
       setUserName((await liff.getProfile()).displayName);
     };
-
     LiffInit();
     if (liff.isLoggedIn()) {
       setName();

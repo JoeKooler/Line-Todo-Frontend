@@ -1,6 +1,11 @@
 import * as TYPE from "./TypeConstants";
 
-export const LoginAction = (user) => ({
-  type: TYPE.USER_LOGIN,
+export const GetUserProfileAction = (user) => ({
+  type: TYPE.GET_USER_PROFILE,
   payload: user,
+});
+
+export const GetUserAccessTokenAction = (token) => ({
+  type: TYPE.GET_USER_ACCESS_TOKEN,
+  payload: token,
 });

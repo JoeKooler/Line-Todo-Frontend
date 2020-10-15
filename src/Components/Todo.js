@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Todos from "./Todos";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodoAction, incrementIDAction } from "../Redux/Todo/Actions";
+import {
+  addTodoAction,
+  incrementIDAction,
+  fetchTodoAction,
+} from "../Redux/Todo/Actions";
 
 export default function Todo() {
   const [newTodo, setNewTodo] = useState("");
@@ -11,7 +15,7 @@ export default function Todo() {
   const state = useSelector((state) => state);
   const { UserReducer, TodoReducer } = state;
   const { id } = TodoReducer;
-  const { user } = UserReducer;
+  const { user, token } = UserReducer;
   const dispatch = useDispatch();
   const incrementID = () => dispatch(incrementIDAction());
   const addNewTodo = (todo) => dispatch(addTodoAction(todo));
@@ -20,7 +24,9 @@ export default function Todo() {
     setNewTodo(event.target.value);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetchTodoAction(token);
+  }, []);
 
   const onSubmit = (event) => {
     event.preventDefault();

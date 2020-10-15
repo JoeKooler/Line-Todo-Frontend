@@ -20,11 +20,11 @@ export const incrementIDAction = () => ({
   type: TYPE.INCREMENT_ID,
 });
 
-export const fetchTodoAction = () => {
+export const fetchTodoAction = (token) => {
   return (dispatch) => {
     dispatch({ type: TYPE.FETCH_TODO });
     return axios
-      .get("http://localhost:8000/")
+      .post("http://localhost:8000/", { access_token: token })
       .then((response) => {
         const resData = response.data;
         return dispatch({

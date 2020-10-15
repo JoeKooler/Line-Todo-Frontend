@@ -7,7 +7,11 @@ export default function Todo() {
   const [newTodo, setNewTodo] = useState("");
 
   //Redux
-  const id = useSelector((state) => state.TodoReducer.id);
+  // const id = useSelector((state) => state.TodoReducer.id);
+  const state = useSelector((state) => state);
+  const { UserReducer, TodoReducer } = state;
+  const { id } = TodoReducer;
+  const { user } = UserReducer;
   const dispatch = useDispatch();
   const incrementID = () => dispatch(incrementIDAction());
   const addNewTodo = (todo) => dispatch(addTodoAction(todo));
@@ -16,9 +20,7 @@ export default function Todo() {
     setNewTodo(event.target.value);
   };
 
-  useEffect(() => {
-    console.log("RFC Did mount");
-  }, []);
+  useEffect(() => {}, []);
 
   const onSubmit = (event) => {
     event.preventDefault();

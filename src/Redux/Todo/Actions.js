@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as TYPE from "./TypesConstant";
 
 export const addTodoAction = (todo) => ({
@@ -18,3 +19,24 @@ export const editTodoAction = (todoContent, todoID) => ({
 export const incrementIDAction = () => ({
   type: TYPE.INCREMENT_ID,
 });
+
+export const fetchTodoAction = () => {
+  return (dispatch) => {
+    dispatch({ type: TYPE.FETCH_TODO });
+    return axios
+      .get("http://localhost:8000/")
+      .then((response) => {
+        const resData = response.data;
+        return dispatch({
+          type: TYPE.FETCH_TODO_SUCCESS,
+          payload: resData,
+        });
+      })
+      .catch((error) => {
+        return dispatch({
+          type: TYPE.FETCH_TODO_FAILED,
+          error: error,
+        });
+      });
+  };
+};

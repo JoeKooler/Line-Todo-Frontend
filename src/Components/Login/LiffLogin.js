@@ -15,7 +15,7 @@ function LiffLogin(props) {
       if (!liff.isLoggedIn()) {
         liff.login();
       } else {
-        setLogin(liff.getProfile());
+        setLogin(await liff.getProfile());
       }
     };
     console.log(props);

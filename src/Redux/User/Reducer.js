@@ -9,8 +9,9 @@ const reducer = (state = initialState, action) => {
   const { type, payload, error } = action;
   switch (type) {
     case TYPE.USER_LOGIN:
-      console.log("Logging in " + payload);
+      console.log("Logging in " + JSON.stringify(payload));
       state.loginSuccess = true;
+      state.user = payload;
       return { ...state };
     default:
       return state;

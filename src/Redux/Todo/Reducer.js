@@ -29,6 +29,9 @@ const reducer = (state = initialState, action) => {
       return { ...state, todos: editTodo(state.todos, payload) };
     case TYPE.INCREMENT_ID:
       return { ...state, id: state.id + 1 };
+    case TYPE.FETCH_TODO_SUCCESS:
+      state.todos = payload;
+      return { ...state };
     default:
       return state;
   }

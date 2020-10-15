@@ -26,7 +26,7 @@ export default function Todo() {
 
   useEffect(() => {
     fetchTodo(token);
-  }, []);
+  }, [token]);
 
   const onSubmit = (event) => {
     event.preventDefault();

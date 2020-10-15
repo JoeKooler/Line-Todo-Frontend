@@ -24,7 +24,7 @@ export const fetchTodoAction = (token) => {
   return (dispatch) => {
     dispatch({ type: TYPE.FETCH_TODO });
     return axios
-      .post("http://localhost:8000/", { access_token: token })
+      .post("https://joe-line-todo.herokuapp.com/", { access_token: token })
       .then((response) => {
         const resData = response.data;
         return dispatch({

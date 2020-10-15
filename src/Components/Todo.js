@@ -19,13 +19,13 @@ export default function Todo() {
   const dispatch = useDispatch();
   const incrementID = () => dispatch(incrementIDAction());
   const addNewTodo = (todo) => dispatch(addTodoAction(todo));
-
+  const fetchTodo = (token) => dispatch(fetchTodoAction(token));
   const setTodoHook = (event) => {
     setNewTodo(event.target.value);
   };
 
   useEffect(() => {
-    fetchTodoAction(token);
+    fetchTodo(token);
   }, []);
 
   const onSubmit = (event) => {

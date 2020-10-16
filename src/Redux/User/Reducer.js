@@ -2,7 +2,7 @@ import * as TYPE from "./TypeConstants";
 
 const initialState = {
   user: {},
-  token: {},
+  token: "",
   loginSuccess: false,
   error: "",
 };

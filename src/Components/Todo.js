@@ -20,7 +20,7 @@ export default function Todo() {
   };
 
   useEffect(() => {
-    if (token !== undefined) fetchTodo(token);
+    if (token !== "") fetchTodo(token);
   }, [token]);
 
   const onSubmit = (event) => {

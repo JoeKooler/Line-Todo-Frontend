@@ -21,7 +21,8 @@ const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case TYPE.ADD_TODO:
-      return { ...state, todos: [...payload] };
+      state.todos = payload;
+      return { ...state };
     // case TYPE.DELETE_TODO:
     //   return { ...state, todos: deleteTodo(state.todos, payload) };
     // case TYPE.EDIT_TODO:

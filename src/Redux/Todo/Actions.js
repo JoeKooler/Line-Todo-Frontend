@@ -1,10 +1,29 @@
 import axios from "axios";
 import * as TYPE from "./TypesConstant";
 
-export const addTodoAction = (todo) => ({
-  type: TYPE.ADD_TODO,
-  payload: todo,
-});
+export const addTodoAction = (token, todo) => {
+  return (dispatch) => {
+    dispatch({ type: TYPE.ADD_TODO });
+    return axios
+      .post("https://joe-line-todo.herokuapp.com/addTodo", {
+        access_token: token,
+        todo: todo,
+      })
+      .then((response) => {
+        const resData = response.data;
+        return dispatch({
+          type: TYPE.ADD_TODO_SUCCESS,
+          payload: resData,
+        });
+      })
+      .catch((error) => {
+        return dispatch({
+          type: TYPE.ADD_TODO_FAILED,
+          error: error,
+        });
+      });
+  };
+};
 
 export const deleteTodoAction = (id) => ({
   type: TYPE.DELETE_TODO,
@@ -14,10 +33,6 @@ export const deleteTodoAction = (id) => ({
 export const editTodoAction = (todoContent, todoID) => ({
   type: TYPE.EDIT_TODO,
   payload: { todoContent: todoContent, todoID: todoID },
-});
-
-export const incrementIDAction = () => ({
-  type: TYPE.INCREMENT_ID,
 });
 
 export const fetchTodoAction = (token) => {

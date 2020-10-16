@@ -1,7 +1,14 @@
 export const ADD_TODO = "ADD_TODO";
+export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
+export const ADD_TODO_FAILED = "ADD_TODO_FAILED";
+
 export const DELETE_TODO = "DELETE_TODO";
+export const DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS";
+export const DELETE_TODO_FAILED = "DELETE_TODO_FAILED";
+
 export const EDIT_TODO = "EDIT_TODO";
-export const INCREMENT_ID = "INCREMENT_ID";
+export const EDIT_TODO_SUCCESS = "EDIT_TODO_SUCCESS";
+export const EDIT_TODO_FAILED = "EDIT_TODO_FAILED";
 
 export const FETCH_TODO = "FETCH_TODO";
 export const FETCH_TODO_SUCCESS = "FETCH_TODO_SUCCESS";

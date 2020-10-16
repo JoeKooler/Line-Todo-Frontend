@@ -20,7 +20,9 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case TYPE.ADD_TODO:
+    // case TYPE.ADD_TODO:
+    //   return { ...state };
+    case TYPE.ADD_TODO_SUCCESS:
       state.todos = payload;
       return { ...state };
     // case TYPE.DELETE_TODO:

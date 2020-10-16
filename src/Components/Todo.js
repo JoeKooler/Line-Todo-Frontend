@@ -10,10 +10,9 @@ export default function Todo() {
   // const id = useSelector((state) => state.TodoReducer.id);
   const state = useSelector((state) => state);
   const { UserReducer, TodoReducer } = state;
-  const { id } = TodoReducer;
   const { user, token } = UserReducer;
   const dispatch = useDispatch();
-  const addNewTodo = (todo) => dispatch(addTodoAction(todo));
+  const addNewTodo = (token, todo) => dispatch(addTodoAction(token, todo));
   const fetchTodo = (token) => dispatch(fetchTodoAction(token));
   const setTodoHook = (event) => {
     setNewTodo(event.target.value);
@@ -26,7 +25,7 @@ export default function Todo() {
   const onSubmit = (event) => {
     event.preventDefault();
     if (newTodo !== "") {
-      addNewTodo({ content: newTodo, id: id });
+      addNewTodo(token, { content: newTodo });
       setNewTodo("");
     }
   };

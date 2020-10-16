@@ -26,7 +26,6 @@ export default function Todo() {
   const onSubmit = (event) => {
     event.preventDefault();
     if (newTodo !== "") {
-      incrementID();
       addNewTodo({ content: newTodo, id: id });
       setNewTodo("");
     }

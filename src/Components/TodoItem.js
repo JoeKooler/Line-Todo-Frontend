@@ -40,7 +40,7 @@ function TodoItem({ todo }) {
   };
 
   return (
-    <li key={todo.id} className="TodoList">
+    <li key={todo._id} className="TodoList">
       <div
         className="TodoContent"
         onMouseEnter={showPencil}
@@ -63,14 +63,14 @@ function TodoItem({ todo }) {
       </div>
       <div className="TodoButtonsGroup">
         <button
-          onClick={(e) => editTodo(editTodoValue, todo.id)}
+          onClick={(e) => editTodo(editTodoValue, todo._id)}
           className="EditButton TheButton"
         >
           EDIT
         </button>
 
         <button
-          onClick={(e) => deleteTodo(todo.id)}
+          onClick={(e) => deleteTodo(todo._id)}
           className="DeleteButton TheButton"
         >
           X

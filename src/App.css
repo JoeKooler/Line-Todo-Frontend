@@ -132,4 +132,12 @@
     width: 6em;
     height: 3em;
   }
+
+  .EditButton {
+    margin-right: 0;
+  }
+
+  .TodoInput {
+    padding: 0.5em 2em 0.5em 0em;
+  }
 }

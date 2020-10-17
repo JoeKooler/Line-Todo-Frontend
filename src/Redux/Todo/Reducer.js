@@ -25,10 +25,12 @@ const reducer = (state = initialState, action) => {
     case TYPE.ADD_TODO_SUCCESS:
       state.todos = payload;
       return { ...state };
-    // case TYPE.DELETE_TODO:
-    //   return { ...state, todos: deleteTodo(state.todos, payload) };
-    // case TYPE.EDIT_TODO:
-    //   return { ...state, todos: editTodo(state.todos, payload) };
+    case TYPE.DELETE_TODO_SUCCESS:
+      state.todos = payload;
+      return { ...state };
+    case TYPE.EDIT_TODO_SUCCESS:
+      state.todos = payload;
+      return { ...state };
     // case TYPE.INCREMENT_ID:
     //   return { ...state, id: state.id + 1 };
     case TYPE.FETCH_TODO_SUCCESS:

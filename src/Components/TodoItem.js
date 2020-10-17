@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteTodoAction, editTodoAction } from "../Redux/Todo/Actions";
 
 function TodoItem({ todo }) {
@@ -11,12 +11,15 @@ function TodoItem({ todo }) {
     "fa fa-pencil ToggleEdit Hide"
   );
   console.log("Rendering TodoItem");
+  const UserReducer = useSelector((state) => state.UserReducer);
+  const { token } = UserReducer;
   const dispatch = useDispatch();
-  const deleteTodo = (todoID) => dispatch(deleteTodoAction(todoID));
-  const editTodo = (todoContent, todoID) => {
+  const deleteTodo = (token, todoID) =>
+    dispatch(deleteTodoAction(token, todoID));
+  const editTodo = (token, editTodoValue, todoID) => {
     if (todoContent !== "") {
       hideEditPanel();
-      return dispatch(editTodoAction(todoContent, todoID));
+      return dispatch(editTodoAction(token, editTodoValue, todoID));
     }
   };
   const setTodoHook = (event) => {
@@ -63,14 +66,14 @@ function TodoItem({ todo }) {
       </div>
       <div className="TodoButtonsGroup">
         <button
-          onClick={(e) => editTodo(editTodoValue, todo._id)}
+          onClick={(e) => editTodo(token, editTodoValue, todo._id)}
           className="EditButton TheButton"
         >
           EDIT
         </button>
 
         <button
-          onClick={(e) => deleteTodo(todo._id)}
+          onClick={(e) => deleteTodo(token, todo._id)}
           className="DeleteButton TheButton"
         >
           X

@@ -25,15 +25,54 @@ export const addTodoAction = (token, todo) => {
   };
 };
 
-export const deleteTodoAction = (id) => ({
-  type: TYPE.DELETE_TODO,
-  payload: id,
-});
+export const deleteTodoAction = (token, todoID) => {
+  return (dispatch) => {
+    dispatch({ type: TYPE.DELETE_TODO });
+    return axios
+      .post("https://joe-line-todo.herokuapp.com/deleteTodo", {
+        access_token: token,
+        todoID: todoID,
+      })
+      .then((response) => {
+        const resData = response.data;
+        return dispatch({
+          type: TYPE.DELETE_TODO_SUCCESS,
+          payload: resData,
+        });
+      })
+      .catch((error) => {
+        return dispatch({
+          type: TYPE.DELETE_TODO_FAILED,
+          error: error,
+        });
+      });
+  };
+};
 
-export const editTodoAction = (todoContent, todoID) => ({
-  type: TYPE.EDIT_TODO,
-  payload: { todoContent: todoContent, todoID: todoID },
-});
+export const editTodoAction = (token, editedTodo, todoID) => {
+  return (dispatch) => {
+    dispatch({ type: TYPE.EDIT_TODO });
+    return axios
+      .post("https://joe-line-todo.herokuapp.com/editTodo", {
+        access_token: token,
+        editedTodo: editedTodo,
+        todoID: todoID,
+      })
+      .then((response) => {
+        const resData = response.data;
+        return dispatch({
+          type: TYPE.EDIT_TODO_SUCCESS,
+          payload: resData,
+        });
+      })
+      .catch((error) => {
+        return dispatch({
+          type: TYPE.EDIT_TODO_FAILED,
+          error: error,
+        });
+      });
+  };
+};
 
 export const fetchTodoAction = (token) => {
   return (dispatch) => {

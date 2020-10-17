@@ -8,9 +8,8 @@ export default function Todo() {
 
   //Redux
   // const id = useSelector((state) => state.TodoReducer.id);
-  const state = useSelector((state) => state);
-  const { UserReducer, TodoReducer } = state;
-  const { user, token } = UserReducer;
+  const UserReducer = useSelector((state) => state.UserReducer);
+  const { token } = UserReducer;
   const dispatch = useDispatch();
   const addNewTodo = (token, todo) => dispatch(addTodoAction(token, todo));
   const fetchTodo = (token) => dispatch(fetchTodoAction(token));

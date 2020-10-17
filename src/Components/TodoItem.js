@@ -17,7 +17,7 @@ function TodoItem({ todo }) {
   const deleteTodo = (token, todoID) =>
     dispatch(deleteTodoAction(token, todoID));
   const editTodo = (token, editTodoValue, todoID) => {
-    if (todoContent !== "") {
+    if (editTodoValue !== "") {
       hideEditPanel();
       return dispatch(editTodoAction(token, editTodoValue, todoID));
     }

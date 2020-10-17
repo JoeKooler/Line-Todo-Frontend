@@ -118,3 +118,18 @@
   bottom: 2em;
   left: 1em;
 }
+
+@media (max-width: 450px) {
+  .TodoButtonsGroup {
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .TheButton {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 6em;
+    height: 3em;
+  }
+}

@@ -36,10 +36,14 @@
 }
 
 .TodoInput {
+  margin-left: 1em;
+  margin-right: 1em;
   padding: 0.5em 2em 0.5em 0.2em;
   outline: none;
   border: none;
+  border-color: white;
   border-bottom: 1px solid;
+  border-color: white;
   background-color: rgba(255, 255, 255, 0);
 }
 

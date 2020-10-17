@@ -7,7 +7,6 @@ export default function Todo() {
   const [newTodo, setNewTodo] = useState("");
 
   //Redux
-  // const id = useSelector((state) => state.TodoReducer.id);
   const UserReducer = useSelector((state) => state.UserReducer);
   const { token } = UserReducer;
   const dispatch = useDispatch();
@@ -42,12 +41,6 @@ export default function Todo() {
             type="text"
             className="TodoInput"
             placeholder="Enter New Todo here"
-            style={{
-              color: "white",
-              marginLeft: "1em",
-              marginRight: "1em",
-              borderColor: "white",
-            }}
           />
         </label>
         <button className="SubmitButton TheButton">ADD</button>

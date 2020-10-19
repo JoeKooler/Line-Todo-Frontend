@@ -15,9 +15,18 @@ const reducer = (state = initialState, action) => {
       state.todos = payload;
       state.fetching = false;
       return { ...state };
+    case TYPE.DELETE_TODO:
+      state.fetching = true;
+      return { ...state };
     case TYPE.DELETE_TODO_SUCCESS:
       state.todos = payload;
       state.fetching = false;
+      return { ...state };
+    case TYPE.EDIT_TODO:
+      state.fetching = true;
+      return { ...state };
+    case TYPE.FETCH_TODO:
+      state.fetching = true;
       return { ...state };
     case TYPE.EDIT_TODO_SUCCESS:
       state.todos = payload;
